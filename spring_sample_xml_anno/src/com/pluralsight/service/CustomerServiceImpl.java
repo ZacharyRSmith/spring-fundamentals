@@ -12,9 +12,13 @@ import com.pluralsight.repository.CustomerRepository;
 @Service("customerService")
 public class CustomerServiceImpl implements CustomerService {
 
-	@Autowired
 	private CustomerRepository customerRepository;
-	
+
+	@Autowired
+	public void setCustomerRepository(CustomerRepository customerRepository) {
+		this.customerRepository = customerRepository;
+	}
+
 	public List<Customer> findAll() {
 		return customerRepository.findAll();
 	}
